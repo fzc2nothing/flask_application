@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<!-- metadata -->
+	<title></title>
+</head>
+<body>
+   
+    <hr><br>
+    {% if mark == 0 %}
+    <div class="container">
+      <!-- [START games] -->
+      <form action = "" method = "post">
+      {% for game in games %}
+      {% if game.email == '' %}
+      <input type="checkbox"  name="displaygame" value="{{game.id}}">
+       {{ game.message }}&nbsp;&nbsp;&nbsp;&nbsp; {{game.rating}}  &nbsp;&nbsp;&nbsp;&nbsp;{{game.platform}} &nbsp;&nbsp;&nbsp;&nbsp; {{game.developer}}  &nbsp;&nbsp;&nbsp;&nbsp;{{game.year}} &nbsp;&nbsp;&nbsp;&nbsp;{{game.price}}&nbsp;&nbsp;&nbsp;&nbsp;</label><br> 
+         <br>
+         <br>
+      {% else %}
+      <input type="checkbox"  name="displaygame" value="{{game.id}}">
+       {{ game.message }}&nbsp;&nbsp;&nbsp;&nbsp; {{game.rating}}  &nbsp;&nbsp;&nbsp;&nbsp;{{game.platform}} &nbsp;&nbsp;&nbsp;&nbsp; {{game.developer}}  &nbsp;&nbsp;&nbsp;&nbsp;{{game.year}} &nbsp;&nbsp;&nbsp;&nbsp;{{game.price}}&nbsp;&nbsp;&nbsp;&nbsp;</label><br> 
+         <br>
+         <br>
+      {% endif %}
+      {% endfor %}
+
+      
+      <!-- [END games] -->
+      <input type="submit" name = cart class="btn btn-large btn-primary" value="Delete">
+
+      <input type="submit" name = cart class="btn btn-large btn-primary" value="Checkout">
+   </form>
+   {% endif %}
+
+   {% if mark == 1 %}
+      Thank you for your purchase!
+      {% endif %}
+      <hr>
+
+      Total price is {{price}}
+   
+      <p><a  href="{{ url_for('index')}}">Return to main page</a></p>
+
+</body>
+</html>
+

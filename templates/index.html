@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="883610838325-n6ihm5as7sit3n6klmt5vrm9grttg7r0.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+    <script>
+      function onSignIn(googleUser) {
+        console.log("Sign On In Progress")
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+
+        //Set default HTTP Request Header
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'https://fengzichao-268601.appspot.com/login');
+        // xhr.open('POST', 'http://https://localhost:8080/login');
+        xhr.send(id_token);
+      }
+    </script>
+
+<a href="/logout" onclick="signOut();">Sign out</a>
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
+
+    <center>
+    <b> <font size="+2">Video Games Engine</font></b>
+    </center>
+
+  
+      <p><a  href="{{ url_for('display', genre = 'action')}}">Browse Action games</a></p>
+      <p><a  href="{{ url_for('display', genre = 'platform')}}">Browse Platform games</a></p>
+      <p><a  href="{{ url_for('display', genre = 'puzzle')}}">Browse Puzzle games</a></p>
+      <p><a  href="{{ url_for('display', genre = 'role-playing')}}">Browse Role-playing games</a></p>
+      <p><a  href="{{ url_for('display', genre = 'sports')}}">Browse Sports games</a></p>
+      <p><a  href="{{ url_for('search')}}">Search for games</a></p>
+      <p><a  href="{{ url_for('shoppingcart')}}">Check the shopping cart</a></p>
+      <p><a  href="{{ url_for('record')}}">Check the shopping record</a></p>
+      <p><a  href="{{ url_for('firstPage')}}">Enter a new games info</a></p>
+
+  </div>
+
+  </body> 
+</html>
+

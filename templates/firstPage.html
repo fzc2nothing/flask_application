@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<!-- metadata -->
+	<title></title>
+</head>
+<body>
+    
+	
+{% if flag == 0 %}
+    You do not input complete message
+{% endif %}
+<form action="" method="post">
+	title: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input value="{{ content }}" size="40" name="content"> <br><br>
+    ESRB rating: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input value="{{ ESRB }}" size="40" name="ESRB"> <br><br>
+    game platform: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input value="{{ platform }}" size="40" name="platform"> <br><br>
+    developer: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input value="{{ developer }}" size="40" name="developer"> <br><br>
+    year of release: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input value="{{ year }}" size="40" name="year"> <br><br>
+    price: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input value="{{ price }}" size="40" name="price"> <br><br>
+	Genre: &nbsp;
+        <input value="{{ guestbook_name }}" size="40" name="guestbook_name" placeholder="{{ key_name }}"> <br><br>
+        <input type="submit" class="btn btn-large btn-primary" value="Enter game info">
+      </form>
+
+
+
+
+      <p><a  href="{{ url_for('index')}}">Return to main page</a></p>
+
+
+</body>
+</html>
+

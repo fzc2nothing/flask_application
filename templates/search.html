@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<!-- metadata -->
+	<title></title>
+</head>
+<body>
+
+   
+
+    <hr><br>
+   {% if flag == 1 %}
+    <div class="container">
+      <!-- [START games] -->
+      <form action = "" method = "post">
+      {% if games %}
+        {% for game in games %}
+        
+        <input type="checkbox" name="searchgame" value="{{game.id}}">
+        {{ game.message }}&nbsp;&nbsp;&nbsp;&nbsp; {{game.rating}}  &nbsp;&nbsp;&nbsp;&nbsp;{{game.platform}} &nbsp;&nbsp;&nbsp;&nbsp; {{game.developer}}  &nbsp;&nbsp;&nbsp;&nbsp;{{game.year}} &nbsp;&nbsp;&nbsp;&nbsp;{{game.price}}&nbsp;&nbsp;&nbsp;&nbsp;</label><br> 
+
+            <br>
+        {% endfor %}
+
+      {% else %}
+      No video games match your search&nbsp;&nbsp;&nbsp;&nbsp;
+      <!-- [END games] -->
+      {% endif %}
+   {% endif %}
+
+   <input type="submit" name = "put" class="btn btn-large btn-primary" value="Intocart">
+</form>
+      <hr>
+
+      <form action="" method="post">
+         title: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input value="{{ content }}" size="40" name="content"> <br><br>
+          ESRB rating: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input value="{{ ESRB }}" size="40" name="ESRB"> <br><br>
+          game platform: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input value="{{ platform }}" size="40" name="platform"> <br><br>
+          developer: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input value="{{ developer }}" size="40" name="developer"> <br><br>
+          year of release: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input value="{{ year }}" size="40" name="year"> <br><br>
+          price: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input value="{{ price }}" size="40" name="price"> <br><br>
+         Genre: &nbsp;
+              <input value="{{ guestbook_name }}" size="40" name="guestbook_name" placeholder="{{ key_name }}"> <br><br>
+              <input type="submit" name = "put" class="btn btn-large btn-primary" value="Entergameinfo">
+            </form>
+
+      <p><a  href="{{ url_for('index')}}">Return to main page</a></p>
+
+</body>
+</html>
+
